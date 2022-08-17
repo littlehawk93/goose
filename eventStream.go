@@ -11,6 +11,7 @@ type EventStream struct {
 	writer http.ResponseWriter
 }
 
+// Begin start this SSE event stream by sending the HTTP headers
 func (me *EventStream) Begin(stream chan string) error {
 
 	if err := me.writeHeaders(); err != nil {
@@ -36,6 +37,7 @@ func (me *EventStream) writeHeaders() error {
 	return nil
 }
 
+// Close close this SSE event stream and the underlying http.ResponseWriter
 func (me *EventStream) Close() error {
 
 	if f, ok := me.writer.(http.Flusher); ok {
@@ -53,6 +55,7 @@ func processData(data string) []byte {
 	return ([]byte)(fmt.Sprintf("data: %s\n\n", data))
 }
 
+// NewEventStream create and initialize a new SSE event stream
 func NewEventStream(w http.ResponseWriter) *EventStream {
 
 	return &EventStream{writer: w}
