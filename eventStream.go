@@ -23,6 +23,10 @@ func (me *EventStream) Begin(stream chan string) error {
 		if _, err := me.writer.Write(processData(s)); err != nil {
 			return err
 		}
+
+		if f, ok := me.writer.(http.Flusher); ok {
+			f.Flush()
+		}
 	}
 
 	return me.Close()
