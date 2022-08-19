@@ -1,7 +1,7 @@
 # goose
 [![GoDoc](https://godoc.org/github.com/littlehawk93/goose?status.svg)](https://godoc.org/github.com/littlehawk93/goose)
 
-A Golang implementation of Server Sent Events
+*Goose* is short for ***GO**lang **S**erver **S**ent **E**vents* (I'm really bad at spelling). It is a SSE library implementation written in Go.
 
 ### Overview
 
