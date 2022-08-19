@@ -6,12 +6,12 @@ import (
 	"net/http"
 )
 
-// EventStream a stream to write outgoing SSE data to
+// EventStream handles writing SSE events to an HTTP response writer. Use NewEventStream to properly create and initialize
 type EventStream struct {
 	writer http.ResponseWriter
 }
 
-// Begin start this SSE event stream by sending the HTTP headers
+// Begin sends the HTTP headers to start a SSE connection. Blocks until the provided channel is closed or an error occurs
 func (me *EventStream) Begin(stream chan string) error {
 
 	if err := me.writeHeaders(); err != nil {
