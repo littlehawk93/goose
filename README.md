@@ -3,7 +3,7 @@ A Golang implementation of Server Sent Events
 
 ### Overview
 
-Server Sent Events (SSE) is a simple one to provide near real-time data to a HTTP client. It is unidirectional - the serer pushes new information to the client. This library provides a simple wrapper to setting up an SSE connection and pushing event data to clients simple and easy. 
+Server Sent Events (SSE) is a simple way to provide near real-time data to a HTTP client. It is unidirectional - the serer pushes new information to the client. This library provides a simple wrapper to setting up an SSE connection and pushing event data to clients easily. 
 
 ### Setup
 
@@ -59,7 +59,6 @@ func myHttpHandler(w http.ResponseWriter, r *http.Request) {
 
     eventChan := make(chan string)
 
-    // asynchronous method to push data to the channel
     go func() {
         for obj := range objectChan {
             data, _ := json.Marshal(&obj)
@@ -68,7 +67,6 @@ func myHttpHandler(w http.ResponseWriter, r *http.Request) {
         close(eventChan)
     }()
 
-    // Blocks until eventChan is closed
     if err := eventStream.Begin(eventChan); err != nil {
         // Handle Error here
     }
