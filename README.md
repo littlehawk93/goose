@@ -1,4 +1,6 @@
 # goose
+[![GoDoc](https://godoc.org/github.com/littlehawk93/goose?status.svg)](https://godoc.org/github.com/littlehawk93/goose)
+
 A Golang implementation of Server Sent Events
 
 ### Overview
