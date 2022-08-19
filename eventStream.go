@@ -1,3 +1,4 @@
+// Package goose a go implementation of Server Sent Events (SSE)
 package goose
 
 import (
